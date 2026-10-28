@@ -5,12 +5,14 @@ using UnityEngine;
 public class FishStats : MonoBehaviour
 {
     float fishHealth = 100f;
-    float hookDamage = 25f; // Get from upgrades when M has coded them
+    ; // Get from upgrades when M has coded them
     float currentHealth;
-    float exampleVar1 = 0.0f;// Replace with real variables during final buidl
+    float exampleVar1;// Replace with real variables during final buidl
     float exampleVar2 = 1.0f;
     private GameObject Hook;
     private FishInventory fishInventory;
+    public PlayerHook hookStats;
+    private float hookDamage;
 
 
     // Start is called before the first frame update
@@ -20,11 +22,14 @@ public class FishStats : MonoBehaviour
         currentHealth = fishHealth;
         fishInventory = FindObjectOfType<FishInventory>();
         Debug.Log("FishInventory found: " + fishInventory);
+        exampleVar1 = Random.Range(1.0f, 10.0f);
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        hookDamage = hookStats.hookDamage;
         if (currentHealth <= 0)
         {
             //Attach to hook until hook i

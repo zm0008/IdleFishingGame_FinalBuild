@@ -14,11 +14,10 @@ public class PlayerHook : MonoBehaviour
     private Rigidbody2D rb;
     private float thrust = 0.5f; 
     //private bool returning = false;
-    public bool returnCheck1 = false; 
+    public bool returnCheck1 = false;
+    public float hookDamage = 25f;
     //UI
-    public TMP_Text MoneyCounter;
-    public Button SellButton;
-    private float balance = 0f;
+
 
 
     private void Awake()
@@ -41,16 +40,12 @@ public class PlayerHook : MonoBehaviour
         transform.position = new Vector3(0.0f, 0.0f, 0.0f);
         RemainingLine = LineLength;
     }
-    //Sell Button
-    public void OnButtonPressed()
-    {
-        Debug.Log("Button Pressed");
-    }
+
 
     void Update()
     {
         //Update Money Counter
-        MoneyCounter.text = balance.ToString();
+        
         if (IsFishing == false && controls.Hook.Cast.IsPressed() && returnCheck1 == false)
         {
             IsFishing = true;
