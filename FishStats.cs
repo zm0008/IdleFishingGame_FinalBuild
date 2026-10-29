@@ -5,7 +5,7 @@ using UnityEngine;
 public class FishStats : MonoBehaviour
 {
     float fishHealth = 100f;
-    ; // Get from upgrades when M has coded them
+     // Get from upgrades when M has coded them
     float currentHealth;
     float exampleVar1;// Replace with real variables during final buidl
     float exampleVar2 = 1.0f;

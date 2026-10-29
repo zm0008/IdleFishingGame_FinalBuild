@@ -40,7 +40,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough money to upgrade line");
+            Debug.Log("Not enough money to upgrade damage");
         }
 
     }

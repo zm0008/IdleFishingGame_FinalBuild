@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,14 +13,12 @@ public class PlayerHook : MonoBehaviour
     private bool IsFishing = false;
     private PlayerController controls;
     private Rigidbody2D rb;
+    public FishInventory fishInventory;
     private float thrust = 0.5f; 
     //private bool returning = false;
     public bool returnCheck1 = false;
     public float hookDamage = 25f;
-    //UI
-
-
-
+     
     private void Awake()
     {
         controls = new PlayerController();
@@ -37,10 +36,33 @@ public class PlayerHook : MonoBehaviour
     }
     public void Start()
     {
+        //Load Stats
+        using (StreamReader reader = new StreamReader("Assets/Resources/savestate.txt"))
+        {
+
+        }
+
+            //
         transform.position = new Vector3(0.0f, 0.0f, 0.0f);
         RemainingLine = LineLength;
     }
 
+    //Save Code
+    public void OnApplicationQuit()
+    {
+        //Save Stats
+        string saveData =
+            "LineLength, " + LineLength.ToString() + "\n" +
+            "hookDamage, " + hookDamage.ToString() + "\n" +
+            "balance, " + fishInventory.balance.ToString();
+        //Write it
+        using (StreamWriter writer = new StreamWriter("Assets/Resources/savestate.txt", false))
+        {
+            writer.Write(saveData);
+            Debug.Log("yo");
+        }
+        
+    }
 
     void Update()
     {
