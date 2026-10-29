@@ -39,7 +39,17 @@ public class PlayerHook : MonoBehaviour
         //Load Stats
         using (StreamReader reader = new StreamReader("Assets/Resources/savestate.txt"))
         {
+            string lineA = reader.ReadLine();
+            string[] splitA = lineA.Split(',');
+            LineLength = float.Parse(splitA[1]);
 
+            string lineB = reader.ReadLine();
+            string[] splitB = lineB.Split(',');
+            hookDamage = float.Parse(splitB[1]);
+
+            string lineC = reader.ReadLine();
+            string[] splitC = lineC.Split(',');
+            fishInventory.balance = float.Parse(splitC[1]);
         }
 
             //
